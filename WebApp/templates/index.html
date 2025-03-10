@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Osteoporosis Prediction</title>
+    <link rel="stylesheet" href="static/styles.css">
+
+</head>
+<body>
+   <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/* รีเซ็ตค่าเบื้องต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ตั้งค่าทั่วไป */
+html {
+    font-size: 150%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    color: white;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: rgba(20, 20, 20, 0.95);
+}
+
+.logo {
+    font-size: 3rem;
+    color: #ff4e4e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+nav a {
+    font-size: 1.8rem;
+    color: #ccc;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff4e4e;
+    border-bottom: 2px solid #ff4e4e;
+}
+
+/* ส่วนเนื้อหา */
+section {
+    min-height: 100vh;
+    padding: 10rem 9%;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.home-content h3 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #ff4e4e;
+}
+
+.home-content p {
+    font-size: 1.8rem;
+    color: #ccc;
+    margin-top: 1rem;
+}
+
+.home-img img {
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 78, 78, 0.8);
+}
+
+/* Social Icons */
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #ff4e4e;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 2rem 1rem;
+    color: #ff4e4e;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.2);
+    background-color: #ff4e4e;
+    color: black;
+    box-shadow: 0 4px 15px rgba(255, 78, 78, 0.8);
+}
+
+/* ปุ่ม */
+.btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: transparent;
+    border: 2px solid #ff4e4e;
+    border-radius: 30px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ff4e4e;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4e4e;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 78, 78, 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+        gap: 4rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+}
+
+h1 {
+    display: block;
+    font-size: 3.5em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h2 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+h3 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+/* คอนเทนเนอร์ของ Progress Bar */
+.progress1 {
+    width: 100%; /* ความกว้างเต็ม */
+    height: 2.5rem; /* ความสูงของหลอด */
+    background: #262626; /* สีพื้นหลังของหลอด */
+    border-radius: 15px; /* มุมโค้งของหลอด */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    position: relative; /* ใช้สำหรับจัดตำแหน่งตัวเลข */
+    margin-bottom: 2rem; /* ระยะห่างระหว่างหลอด */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* เพิ่มเงาสำหรับหลอด */
+}
+
+.progress2 {
+    width: 100%; 
+    height: 2.5rem; 
+    background: #262626; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    position: relative; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
+.progress3 {
+    width: 100%; 
+    height: 2.5rem; 
+    background: #262626; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    position: relative; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
+.progress4 {
+    width: 100%; 
+    height: 2.5rem;
+    background: #262626; 
+    border-radius: 15px;
+    overflow: hidden; 
+    position: relative; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+/* ตัวแถบ Progress */
+.progress1  {
+    height: 100%; /* ความสูงเต็มคอนเทนเนอร์ */
+    width: 90%; /* ความกว้างเริ่มต้น (ใช้ JavaScript ควบคุม) */
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); /* Gradient สีหลอด */
+    transition: width 1.5s ease-in-out; /* เพิ่มแอนิเมชัน */
+    border-radius: 15px; /* มุมโค้งตามคอนเทนเนอร์ */
+    position: relative; /* ใช้สำหรับจัดตำแหน่งตัวเลข */
+    display: flex;
+    align-items: center; /* จัดตัวเลขตรงกลางหลอด */
+    justify-content: flex-end; /* วางตัวเลขไว้ปลายหลอด */
+    padding-right: 1rem; /* ระยะห่างตัวเลขกับขอบ */
+}
+.progress2  {
+    height: 100%; 
+    width: 80%; 
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); 
+    transition: width 1.5s ease-in-out;
+    border-radius: 15px; 
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+    padding-right: 1rem; 
+}
+
+.progress3  {
+    height: 100%; 
+    width: 70%; 
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); 
+    transition: width 1.5s ease-in-out;
+    border-radius: 15px; 
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+    padding-right: 1rem; 
+}
+
+.progress4  {
+    height: 100%; 
+    width: 60%; 
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); 
+    transition: width 1.5s ease-in-out;
+    border-radius: 15px; 
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+    padding-right: 1rem; 
+}
+/* ตัวเลขเปอร์เซ็นต์ */
+.progress1 {
+    font-size: 1.4rem; /* ขนาดตัวเลข */
+    font-weight: bold;
+    color: white; /* สีของตัวเลข */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+}
+
+.progress2 {
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: white; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+.progress3 {
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: white; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+.progress4 {
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+.responsive-circle {
+    width: 100%;
+    max-width: 500px; /* กำหนดขนาดสูงสุดให้แต่ละรูป */
+    aspect-ratio: 1 / 1; /* สัดส่วนเป็น 1:1 เพื่อให้เป็นวงกลมสมบูรณ์ */
+    border-radius: 100%; /* ทำให้รูปภาพกลายเป็นวงกลม */
+    object-fit: cover; /* ครอบคลุมพื้นที่วงกลมโดยไม่เสียสัดส่วน */
+    margin: 10px; /* เพิ่มระยะห่างระหว่างรูปภาพ */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* จัดรูปให้อยู่กึ่งกลางแนวนอน */
+    gap: 20px; /* ระยะห่างระหว่างรูป */
+    flex-wrap: wrap; /* ให้รูปย้ายแถวได้เมื่อพื้นที่ไม่พอ */
+}
+
+    </style>
+<!-- Header with navigation -->
+<header>
+    <a href="#" class="logo">Osteoporosis Prediction</a>
+    <nav id="nav-menu">
+        <a href="#home" class="active">Home</a>
+        <a href="#Prepared-By">Prepared-By</a>
+        <a href="#Introduction">Introduction</a>
+        <a href="#application-osteoporosis">application-osteoporosis</a>
+        <a href="#Process">Process</a>
+        <a href="#Accuracy-Algorithms">Accuracy-Algorithms</a>
+        <a href="#Conclusions">Conclusions</a>
+        <a href="#prediction">Prediction</a>
+    </nav>
+    <button class="menu-button">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
+
+
+<!-- Home Section -->
+<section id="home" class="home">
+    </div>
+    <div class="home-content">
+        <h1> AIMS Math</h1>
+        <h3 class="typing-text"><span id="typing"></span></h3>
+        <p>โรคกระดูกพรุน (Osteoporosis) เป็นโรคที่ทำให้กระดูกเปราะบางและเสี่ยงต่อการหัก 
+            การทำนายความเสี่ยงของโรคนี้เป็นสิ่งสำคัญเพื่อการวินิจฉัยและรักษาที่แม่นยำ 
+            ในงานวิจัยนี้ เราจะศึกษาการประยุกต์ใช้ ปัญหาการรวมเชิงความแปรผัน 
+            (Variational Inclusion Problems) และ แผนที่แบบกึ่งไม่ขยาย 
+            (Quasi-Nonexpansive Mappings) เพื่อพัฒนาโมเดลการทำนายความเสี่ยงของโรคกระดูกพรุน 
+            โดยใช้ข้อมูลทางการแพทย์ เช่น ความหนาแน่นของกระดูกเพื่อให้ได้ผลลัพธ์ที่แม่นยำและมีประสิทธิภาพในการประเมินความเสี่ยง</p>
+    <div class="social-icons">
+        </div>
+        <a href="https://www.aimspress.com/article/doi/10.3934/math.2025118"  target="_blank" class="btn">Research</a>
+    </div>
+</section>
+<!-- prepared by -->
+<section id="Prepared-By" class="container">
+    <h1> Prepared By</h1>
+    <div class="Prepared-By">
+        <h2>Supporter By</h2>
+        <div class="student-info">
+            <div class="student">
+                <a href="https://www.nrct.go.th/home" target="_blank">
+                    <img src="https://i.postimg.cc/CM9Kq4Qs/Screenshot-2025-03-10-215952.png"  alt="University Student 1.1">
+                </a>
+                <p>สำนักงานการวิจัยแห่งชาติ (วช.)
+                    NATIONAL RESEARCH COUNCIL OF THAILAND
+                </p>
+            </div>
+
+            <div class="student">
+                <a href="https://www.tsri.or.th" target="_blank">
+                    <img src="https://i.postimg.cc/YCnZvdXp/Screenshot-2025-03-10-220017.png" alt="University Student 2.2">
+                </a>
+                <p>สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม</p> 
+            </div>
+        </div>
+    </div>
+
+    <div class="Prepared-By">
+        <h2>Supervisor</h2>
+        <div class="student-info">
+            <div class="student">
+                <a href="https://postimages.org/" target="_blank">
+                    <img src="https://i.postimg.cc/jSz86PC0/2025-03-09-2-31-22-PM.png" alt="High School Certificate">
+                </a>
+                <p>Prasit Cholamjiak</p>
+                <p>Department of Mathematics, School of Science, University of Phayao, Thailand</p>
+            </div>
+
+            <div class="student">
+                <a href="https://postimages.org/" target="_blank">
+                    <img src="https://i.postimg.cc/Jzw6BPr5/2025-03-09-2-31-46-PM.png" alt="Certificate 2">
+                </a>
+                <p>Watcharaporn Cholanjiak</p>
+                <p>Department of Mathematics, School of Science, University of Phayao, Thailand</p>
+            </div>
+
+            <div class="student">
+                <a href="https://postimages.org/" target="_blank">
+                    <img src="https://i.postimg.cc/76BtG4h5/2025-03-09-2-33-20-PM.png" alt="Certificate 3">
+                </a>
+                <p>Kanokwatt Shiangjen</p>
+                <p>School of Information and Communication Technology, University of Phayao, Thailand</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="Prepared-By">
+        <h2>Prepared By</h2>
+        <div class="student-info">
+            <div class="student">
+                <a href="https://postimages.org/" target="_blank">
+                    <img src="https://i.postimg.cc/QxVLJG6D/Screenshot-2025-03-09-194321.png" alt="University Student 1">
+                </a>
+                <p>Jakkaphong Inpan</p>
+                <p>B.D. Student, Department of Data Science and Application, School of Information and Communication Technology, University of Phayao</p>
+            </div>
+
+            <div class="student">
+                <a href="https://postimages.org/" target="_blank">
+                    <img src="https://i.postimg.cc/7L8p4CqP/Screenshot-2025-03-09-194341.png" alt="University Student 2">
+                </a>
+                <p>Phisit Katongtung</p>
+                <p>B.D. Student, Department of Data Science and Application, School of Information and Communication Technology, University of Phayao</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .student-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .student {
+        width: 300px;
+        text-align: center;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .student:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .student img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .student img:hover {
+        transform: scale(1.08);
+    }
+
+    .student p {
+        font-size: 14px;
+        color: #333;
+    }
+
+    .student-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .student {
+        width: 400px; /* ปรับขนาดกล่องให้ใหญ่ขึ้น */
+        text-align: center;
+        background: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .student:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .student img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .student img:hover {
+        transform: scale(1.1);
+    }
+
+    .student p {
+        font-size: 30px; /* ปรับให้ใหญ่ขึ้น */
+        font-weight: bold;
+        color: #333;
+        margin-top: 10px;
+    }
+    .Prepared-By h2 {
+        text-align: center; /* จัดให้อยู่ตรงกลาง */
+        font-size: 40px; /* ปรับขนาดให้ใหญ่ขึ้น */
+        font-weight: bold;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+
+
+</style>
+
+<!-- Introduction Section -->
+<section id="Introduction" class="container">
+    <h1 class="Introduction-heading">Introduction</h1>
+    <div class="Introduction-grid">
+        <div class="Introduction">
+            <h2 class="Introduction-text">บทความนี้ได้เสนอกระบวนการอัลกอริธึมใหม่ในการแก้ปัญหาจุดคงที่สำหรับการแมปกิ้งที่เกือบไม่ขยาย (quasi-nonexpansive mappings) 
+                และปัญหาการรวมตัวของตัวแปร (variational inclusion problems) ภายในพื้นที่ Hilbert ที่เป็นจริง วิธีการที่เสนอนี้แสดงให้เห็นถึงการรวมตัวแบบอ่อนภายใต้สมมติฐานที่เหมาะสม 
+                นอกจากนี้เรายังได้นำอัลกอริธึมนี้ไปใช้ในการจัดประเภทข้อมูลเพื่อทำนายความเสี่ยงของโรคกระดูกพรุน โดยใช้เครื่องเรียนรู้แบบสุดขั้ว (Extreme Learning Machine) จากผลการทดลอง 
+                อัลกอริธึมที่เราเสนอนั้นสามารถทำได้ดีกว่าอัลกอริธึมที่มีอยู่เดิมในหลายมาตรวัดการประเมิน โดยเฉพาะอย่างยิ่งมันทำให้ได้ค่าความถูกต้อง (accuracy), ความแม่นยำ (precision), 
+                และ F1-score ที่สูงขึ้นในหลายๆ กล่องการฝึกฝนเมื่อเทียบกับวิธีการอื่นๆ ค่าพื้นที่ใต้โค้ง (AUC) จากกราฟเส้นโค้งการทำงานของผู้รับ (ROC curve) ยังยืนยันถึงความมีประสิทธิภาพของวิธีการของเรา 
+                ซึ่งแสดงให้เห็นถึงการทั่วไปและประสิทธิภาพในการจำแนกประเภทที่เหนือกว่า ผลลัพธ์เหล่านี้เน้นย้ำถึงประสิทธิภาพและความทนทานของอัลกอริธึมที่เราเสนอนี้ 
+                ซึ่งแสดงให้เห็นถึงศักยภาพในการพัฒนารูปแบบการทำนายความเสี่ยงของโรคกระดูกพรุนผ่านการปรับปรุงการรวมตัวและความสามารถในการจำแนกประเภท.</h2>
+<head>
+    <style>
+        .Introduction img {
+            width: 900px;
+            height: auto;
+            border: 5px solid #ccc; /* กำหนดกรอบสีเทา */
+            border-radius: 10px; /* มุมโค้งมน */
+            padding: 10px; /* ระยะห่างภายในกรอบ */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เงารอบกรอบ */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* การเคลื่อนไหวและเงา */
+        }
+
+        .Introduction img:hover {
+            transform: scale(1.05); /* ขยายภาพเมื่อชี้เมาส์ */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อชี้เมาส์ */
+        }
+
+        .Introduction {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* ระยะห่างระหว่างภาพ */
+            justify-content: center; /* จัดภาพให้อยู่กลาง */
+        }
+    </style>
+    </head>
+    <h2>Old Algorithm</h2>
+    <div class="Introduction">
+        <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/KYvH05qM/Screenshot-2025-03-09-150443.png" 
+            \alt="Screenshot-2025-03-09-150443" border="0"></a>
+            <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/qRWDMHks/Screenshot-2025-03-09-150501.png" 
+                alt="Screenshot-2025-03-09-150501" border="0"></a>
+                <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/VLQZxwZ1/Screenshot-2025-03-09-150509.png" 
+                    alt="Screenshot-2025-03-09-150509" border="0"></a>
+                    <h2>New Algorithm</h2>
+                    
+    </div>
+    <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/3NpSkfRP/Screenshot-2025-03-09-150536.png" 
+        alt="Screenshot-2025-03-09-150536" border="0"></a>
+</div>
+</section>
+</section>
+<style>
+    
+    .Introduction-text {
+        font-size:  37px; /* ปรับขนาดตัวหนังสือที่ต้องการ */
+        color: #ccc; /* ปรับสีตัวหนังสือ */
+    }
+</style>
+</section>
+
+<section id="application-osteoporosis" class="Application to Osteoporosis Risk Prediction">
+    <h1>Application to Osteoporosis Risk Prediction</h1>
+    
+    <div class="application-osteoporosis">
+        <div class="text-application-osteoporosis">
+            <h2>ความสำคัญของโรคกระดูกพรุน</h2>
+            <ul>
+                <li class="Introduction-text">โรคกระดูกพรุนเป็นปัญหาสุขภาพระดับโลก โดยเฉพาะในผู้สูงอายุ</li>
+                <li  class="Introduction-text">ทำให้กระดูกอ่อนแอและเพิ่มความเสี่ยงต่อการแตกหัก</li>
+                <li  class="Introduction-text">ส่งผลให้เกิดภาวะแทรกซ้อน การสูญเสียการเคลื่อนไหว และอัตราการเสียชีวิตที่สูงขึ้น</li>
+            </ul>
+            
+            <h2>บทบาทของ Machine Learning ในการวิเคราะห์โรคกระดูกพรุน</h2>
+            <ul>
+                <li  class="Introduction-text">Machine Learning (ML) สามารถวิเคราะห์ข้อมูลประชากร ไลฟ์สไตล์ พันธุกรรม และความหนาแน่นของกระดูก</li>
+                <li  class="Introduction-text">ช่วยระบุบุคคลที่มีความเสี่ยงสูงได้ตั้งแต่ระยะเริ่มต้น</li>
+                <li  class="Introduction-text">ทำให้สามารถเข้าแทรกแซงและป้องกันภาวะแทรกซ้อนจากโรคกระดูกพรุนได้</li>
+            </ul>
+            
+            <h2>การพัฒนาอัลกอริธึมใหม่เพื่อเพิ่มประสิทธิภาพการทำนาย</h2>
+            <ul>
+                <li  class="Introduction-text">ใช้อัลกอริธึมที่พัฒนาขึ้นใหม่เป็นตัวปรับค่าประสิทธิภาพ (Optimizer) ให้กับ Extreme Learning Machine (ELM)</li>
+                <li  class="Introduction-text">ใช้ชุดข้อมูลจาก Kaggle ที่ครอบคลุมข้อมูลประชากร ไลฟ์สไตล์ และประวัติทางการแพทย์</li>
+                <li  class="Introduction-text">เพิ่มความแม่นยำในการวิเคราะห์และคาดการณ์ความเสี่ยงของโรคกระดูกพรุน</li>
+            </ul>
+            
+            <h2>ปัจจัยเสี่ยงที่เกี่ยวข้องกับโรคกระดูกพรุน</h2>
+            <ul>
+                <li  class="Introduction-text"><strong>อายุ:</strong> กระดูกเสื่อมตามธรรมชาติเมื่ออายุมากขึ้น</li>
+                <li  class="Introduction-text"><strong>การเปลี่ยนแปลงของฮอร์โมน:</strong> เช่น วัยหมดประจำเดือนที่ลดระดับฮอร์โมนเอสโตรเจน</li>
+                <li  class="Introduction-text"><strong>ภาวะขาดสารอาหาร:</strong> โดยเฉพาะแคลเซียมและวิตามินดี</li>
+                <li  class="Introduction-text"><strong>พฤติกรรมการดำเนินชีวิต:</strong> เช่น การไม่ออกกำลังกายหรือรับประทานอาหารที่ไม่มีประโยชน์</li>
+            </ul>
+            
+            <h2>การตรวจวินิจฉัยและแนวทางการป้องกัน</h2>
+            <ul>
+                <li>ตรวจวินิจฉัยด้วยเครื่อง <strong>DEXA Scan</strong> เพื่อวัดค่าความหนาแน่นของมวลกระดูก (T-score < -2.5 แสดงว่าเป็นโรคกระดูกพรุน)</li>
+                <li>การออกกำลังกาย รับประทานอาหารที่มีแคลเซียมและวิตามินดี และปรับเปลี่ยนพฤติกรรมช่วยลดความเสี่ยง</li>
+            </ul>
+            
+            <h2>ประโยชน์ของการใช้ Machine Learning ในการจัดการโรคกระดูกพรุน</h2>
+            <ul>
+                <li>สามารถทำนายความเสี่ยงได้เร็วขึ้น</li>
+                <li>ช่วยให้แพทย์และบุคลากรทางการแพทย์วางแผนการรักษาที่เหมาะสม</li>
+                <li>เพิ่มโอกาสในการป้องกันและลดภาระของระบบสาธารณสุข</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+    .application-osteoporosis {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .application-osteoporosis {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .text-content {
+        width: 60%;
+    }
+    
+    .text-application-osteoporosis {
+    font-size: 35px; 
+    line-height: 1.6; 
+}
+
+.text-application-osteoporosis h2 {
+    font-size: 50px; 
+    font-weight: bold;
+    color: #ffffff; 
+}
+
+    .image-application-osteoporosis {
+        width: 35%;
+        display: flex;
+        justify-content: center;
+    }
+    .styled-image {
+        border: 5px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+    }
+    .styled-image:hover {
+        transform: scale(1.05);
+    }
+</style>
+                                
+
+ <!-- Process -->
+    <section id="Process" class="Process">
+        <h1>Process</h1>
+        <ul>
+
+            <h2>ตัวอย่างชุดข้อมูล</h2>
+            <div class="Process5">
+                <img src='https://i.postimg.cc/wB0fgD5S/Screenshot-2025-03-10-200432.png' alt='Osteoporosis Prediction' class="styled-image5">
+            </div>
+            <h2></h2>
+                <li class="Introduction-text">ตัวแปรเหล่านี้เกี่ยวข้องกับปัจจัยที่อาจส่งผลต่อภาวะโรคกระดูกพรุน 
+                    เช่น อายุ เพศ การเปลี่ยนแปลงของฮอร์โมน 
+                    ประวัติครอบครัว น้ำหนักตัว การบริโภคแคลเซียม 
+                    การออกกำลังกาย การสูบบุหรี่ และประวัติการกระดูกหักเป็นต้นส่วนล่างของตารางระบุว่าชุดข้อมูลนี้มี 979 ตัวอย่างที่เป็นโรคกระดูกพรุน และ 979 ตัวอย่างที่ไม่เป็นโรคกระดูกพรุน 
+                    ซึ่งแสดงให้เห็นว่าสมดุลของข้อมูลมีความเท่าเทียมกันระหว่างสองกลุ่ม.</li>
+            
+
+            <h2>ภาพจากระยะกระดูกพรุน</h2>
+            <div class="Process1">
+                <img src='https://i.postimg.cc/8PShqNLh/Screenshot-2025-03-10-032016.png' alt='Osteoporosis Prediction' class="styled-image1">
+            </div>
+            <h2></h2>
+                <li class="Introduction-text">กระดูกปกติ (Normal bone): มีค่า T-score -1 หรือสูงกว่า แสดงถึงความหนาแน่นของกระดูกที่แข็งแรง</li>
+                <li class="Introduction-text"> กระดูกบาง (Osteopenia): แสดงถึงการสูญเสียมวลกระดูกเล็กน้อย มีค่า T-score อยู่ระหว่าง -1 ถึง -2.5 แสดงถึงภาวะความหนาแน่นของกระดูกต่ำกว่าปกติ</li>
+                <li class="Introduction-text">กระดูกพรุน (Osteoporosis): มีลักษณะการสูญเสียมวลกระดูกอย่างมากและมีความพรุนเพิ่มขึ้น มีค่า T-score -2.5 หรือต่ำกว่า แสดงถึงความเสี่ยงที่สูงขึ้นต่อการเกิดกระดูกหัก</li>
+        </ul>
+        <ul>
+            <h2>ประเมินประสิทธิภาพของอัลกอริทึมการจำแนกประเภทโดยใช้ 4 EvaluationMetrics</h2>
+                <div class="container1">
+                    <ul class="text-list1">
+                        <li>Accuracy</li>
+                        <li>Precision</li>
+                        <li>Recall</li>
+                        <li>F1-score</li>
+
+                    </ul>
+                    <img src="https://i.postimg.cc/PJqCy4Yf/Screenshot-2025-03-10-135103.png" 
+         alt="Osteoporosis Prediction" class="styled-image">
+         <div class="container1">
+            <ul class="text-list1">
+                <li>TP (True Positives) หมายถึง ผลลัพธ์ที่ถูกต้องและเป็นบวก (เช่น การทำนายว่ามีโรค และมีโรคจริง)</li>
+                <li>TN (True Negatives) หมายถึง ผลลัพธ์ที่ถูกต้องและเป็นลบ (เช่น การทำนายว่าไม่มีโรค และไม่มีโรคจริง)</li>
+                <li>FP (False Positives) หมายถึง ผลลัพธ์ที่ผิดพลาดและเป็นบวก (เช่น การทำนายว่ามีโรค แต่ไม่มีโรคจริง)</li>
+                <li>FN (False Negatives) หมายถึง ผลลัพธ์ที่ผิดพลาดและเป็นลบ (เช่น การทำนายว่าไม่มีโรค แต่มีโรคจริง)</li>
+                </div>
+            </ul>
+                <ul>
+                    <h2>ภาพประกอบแสดงการทำงานของเทคนิคการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า</h2>
+                    <div class="Process3">
+                        <img src='https://i.postimg.cc/MG5t4Sdm/Screenshot-2025-03-10-154512.png' alt='Osteoporosis Prediction' class="styled-image1">
+                    </div>
+                    <h2>คำอธิบาย</h2>
+                    <ul class="text-list2">
+                    <p>ภาพประกอบแสดงการทำงานของเทคนิคการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า ซึ่งเป็นวิธีที่ใช้ในการประเมินประสิทธิภาพของโมเดลการเรียนรู้ของเครื่อง (machine learning) โดยแบ่งข้อมูลออกเป็น 5 ส่วนเท่าๆ กัน (folds)</p>
+                    <h2></h2>
+                    <h4>แต่ละ Fold:</h4>
+                        <li class="Introduction-text">ในแต่ละรอบ (fold) จะมีการแบ่งข้อมูลออกเป็นสองส่วน</li>
+                        <li class="Introduction-text"> ข้อมูลฝึกฝน (Training Data): 80% ของข้อมูลทั้งหมด (แสดงด้วยสีม่วง) จะถูกใช้เพื่อฝึกฝนโมเดล</li>
+                        <li class="Introduction-text">ข้อมูลตรวจสอบ (Validation Data): 20% ของข้อมูลทั้งหมด (แสดงด้วยสีเขียว) จะถูกใช้เพื่อตรวจสอบประสิทธิภาพของโมเดลที่ได้รับการฝึกฝน</li>
+                        <li class="Introduction-text">แต่ละ fold จะใช้ส่วนย่อยของข้อมูลที่แตกต่างกันสำหรับการตรวจสอบ เพื่อให้แน่ใจว่าข้อมูลทั้งหมดถูกใช้สำหรับการตรวจสอบอย่างน้อยหนึ่งครั้ง</li>
+                        
+                        <h2></h2>
+                        <h4>การทำงาน:</h4>
+                        <li class="Introduction-text">กระบวนการนี้จะทำซ้ำ 5 ครั้ง โดยแต่ละครั้งจะใช้ fold ที่แตกต่างกันเป็นข้อมูลตรวจสอบ และใช้ fold ที่เหลือเป็นข้อมูลฝึกฝน</li>
+                        <li class="Introduction-text"> ผลลัพธ์จากแต่ละ fold จะถูกนำมาเฉลี่ยเพื่อประเมินประสิทธิภาพโดยรวมของโมเดล</li>
+                        
+                        <h2></h2>
+                        <h4>ประโยชน์:</h4>
+                        <li class="Introduction-text">การตรวจสอบความถูกต้องแบบไขว้ 5 เท่า ช่วยลดปัญหาการ "overfitting" (การที่โมเดลเรียนรู้ข้อมูลฝึกฝนมากเกินไปจนไม่สามารถทำงานได้ดีกับข้อมูลใหม่)</li>
+                        <li class="Introduction-text">ช่วยให้ได้การประเมินประสิทธิภาพของโมเดลที่น่าเชื่อถือมากขึ้น โดยการใช้ข้อมูลทั้งหมดในการตรวจสอบ</li>
+                </ul>
+                <style>
+
+                    
+                        .Process1 {
+                    display: flex;
+                    justify-content: center; /* จัดกลางแนวนอน */
+                    align-items: center; /* จัดกลางแนวตั้ง */
+                    width: 100%;
+                       }
+                       .Process5 {
+                    display: flex;
+                    justify-content: center; /* จัดกลางแนวนอน */
+                    align-items: center; /* จัดกลางแนวตั้ง */
+                    width: 100%;
+                       }
+
+                       .Process3 {
+                    display: flex;
+                    justify-content: center; /* จัดกลางแนวนอน */
+                    align-items: center; /* จัดกลางแนวตั้ง */
+                    width: 100%;
+                       }
+                
+                    .styled-image1 {
+                        width: 80%;
+                        height: auto; /* ป้องกันการบิดเบี้ยว */
+                    }
+                    .styled-image5 {
+                        width: 50%;
+                        height: auto; /* ป้องกันการบิดเบี้ยว */
+                    }
+                    
+                    .container1 {
+    display: flex;
+    align-items: center;  /* จัดกึ่งกลางแนวตั้ง */
+    justify-content: flex-start; /* จัดวางให้อยู่ทางซ้ายของ container */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างข้อความและรูป */
+}
+
+.text-list1 {
+    list-style-type: disc;
+    padding: 20px; /* ระยะห่างข้างซ้ายของข้อความ */
+    margin: 50px ; /* ระยะห่างข้างบนและล่าง */
+    color: #ccc; /* ใช้สีขาวตามภาพที่แนบมา */
+    font-size: 40px;
+}
+
+.styled-image {
+    width: 100%;
+    max-width: 800px;
+}
+.text-list2 {
+    list-style-type: disc;
+    padding: 20px; /* ระยะห่างข้างซ้ายของข้อความ */
+    margin: 50px ; /* ระยะห่างข้างบนและล่าง */
+    color: #ffffff; /* ใช้สีขาวตามภาพที่แนบมา */
+    font-size: 40px;
+}
+
+                    
+                    .styled-image1 {
+        border: 5px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+    }
+    .styled-image1:hover {
+        transform: scale(1.05);
+    }
+    .styled-image2 {
+        border: 5px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+    }
+    .styled-image2:hover {
+        transform: scale(1.05);
+    }
+    .styled-image5:hover {
+        transform: scale(1.05);
+    }
+    .styled-image5 {
+        border: 5px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+    }
+    .styled-image5:hover {
+        transform: scale(1.05);
+    }
+    </style>
+    <section id="Accuracy-Algorithms" class="Accuracy-Algorithms">
+        <h1>Accuracy-Algorithms</h1>
+        <h2> Settings-for-Algorithms</h2>
+        <div class="Accuracy-Algorithms">
+            <img src="https://i.postimg.cc/rpX08KFN/Screenshot-2025-03-10-181455.png" 
+                 alt="Osteoporosis Prediction" class="styled-image4">
+                 <h2></h2>
+            <ul>
+                <li class="Introduction-text">
+                    การตั้งค่าพารามิเตอร์สำหรับอัลกอริทึม 1–4 พารามิเตอร์รวมถึง 1, n, และ n ซึ่งแสดงถึงขนาดก้าว, 
+                    อัตราการเรียนรู้, ปัจจัยการปรับ, และเทอมเพิ่มเติมที่เกี่ยวข้องกับกระบวนการวนซ้ำ
+                </li>
+                <h2>Algorithm-Training Box 1</h2>
+                <img src="https://i.postimg.cc/0NY6rPzR/Screenshot-2025-03-10-181504.png" 
+                alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <li class="Introduction-text">
+                    การเปรียบเทียบประสิทธิภาพของอัลกอริทึม 1-4 บนชุดข้อมูลตรวจสอบจากกล่องฝึกฝน 1 (Training Box 1) 
+                    ผลลัพธ์เหล่านี้อิงจากการประเมินโมเดลโดยใช้ fold แรกของแผนการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า (5-fold cross-validation scheme) 
+                    โดยที่กล่องฝึกฝน 1 ทำหน้าที่เป็นชุดข้อมูลตรวจสอบ
+                </li>
+                
+                <h2>Algorithm-Training Box 2</h2>
+                <img src="https://i.postimg.cc/1Xt4WFJs/Screenshot-2025-03-10-181515.png" 
+                alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <li class="Introduction-text">"การเปรียบเทียบประสิทธิภาพของอัลกอริทึม 1-4 บนชุดข้อมูลตรวจสอบจากกล่องฝึกฝน 2 (Training Box 2)
+                    โดยอิงจาก fold ที่สองของแผนการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า (5-fold cross-validation scheme)"
+                </li>
+
+                <h2>Algorithm-Training Box 3</h2>
+                <img src="https://i.postimg.cc/wvF7c25w/Screenshot-2025-03-10-181525.png" 
+                alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <li class="Introduction-text">"การเปรียบเทียบประสิทธิภาพของอัลกอริทึม 1-4 บนชุดข้อมูลตรวจสอบจากกล่องฝึกฝน 3 (Training Box 3) โดยอิงจาก fold 
+                    ที่สามของแผนการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า (5-fold cross-validation scheme)"
+                </li>
+                
+                <h2>Algorithm-Training Box 4</h2>
+                <img src="https://i.postimg.cc/nznXDgms/Screenshot-2025-03-10-181545.png"
+                alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <li class="Introduction-text">"การเปรียบเทียบประสิทธิภาพของอัลกอริทึม 1-4 บนชุดข้อมูลตรวจสอบจากกล่องฝึกฝน 4 (Training Box 4)
+                    โดยอิงจาก fold ที่สองของแผนการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า (5-fold cross-validation scheme)"
+                </li>
+
+                <h2>Algorithm-Training Box 5</h2>
+                <img src="https://i.postimg.cc/3NcNzwcp/Screenshot-2025-03-10-181550.png"
+                alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <li class="Introduction-text">"การเปรียบเทียบประสิทธิภาพของอัลกอริทึม 1-4 บนชุดข้อมูลตรวจสอบจากกล่องฝึกฝน 5 (Training Box 5)
+                    โดยอิงจาก fold ที่สองของแผนการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า (5-fold cross-validation scheme)"
+                </li>
+
+                <h2>Algorithm-Training Box 6</h2>
+                <img src="https://i.postimg.cc/15BKsnT1/Screenshot-2025-03-10-194444.png" 
+                alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <li class="Introduction-text">"การเปรียบเทียบประสิทธิภาพของอัลกอริทึม 1-4 บนชุดข้อมูลตรวจสอบจากกล่องฝึกฝน 6 (Training Box 6)
+                    โดยอิงจาก fold ที่สองของแผนการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า (5-fold cross-validation scheme)"
+                </li>
+
+                <h2>Algorithm-Training Box 7</h2>
+                <img src="https://i.postimg.cc/GmSJs0dM/Screenshot-2025-03-10-194448.png" 
+                alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <li class="Introduction-text">"การเปรียบเทียบประสิทธิภาพของอัลกอริทึม 1-4 บนชุดข้อมูลตรวจสอบจากกล่องฝึกฝน 7 (Training Box 7)
+                    โดยอิงจาก fold ที่สองของแผนการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า (5-fold cross-validation scheme)"
+                </li>
+                <h2>จากตารางที่ 3–7 ผลการดำเนินงานของอัลกอริทึม 1–4 ได้รับการประเมินโดยใช้รูปแบบการตรวจสอบความถูกต้องแบบไขว้ 5 เท่า โดยแต่ละกล่องฝึกอบรมทำหน้าที่เป็นชุดตรวจสอบความถูกต้องตามลำดับ</h2>
+                     <h2></h2>
+                    <li class="Introduction-text">(i) กล่องฝึกอบรม 1: อัลกอริทึม 4 มีความแม่นยำสูงสุด (82.05%) ด้วยความแม่นยำที่โดดเด่น (91.79%) และคะแนน F1 (83.64%)</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(ii) กล่องฝึกอบรม 2: อัลกอริทึม 3 และ 4 มีความแม่นยำสูงสุดเท่ากัน (85.93%) โดยอัลกอริทึม 4 แสดงเวลา CPU และการเรียกคืน (81.61%) ที่ดีกว่าเล็กน้อย</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(iii) กล่องฝึกอบรม 3: อัลกอริทึม 4 ทำงานได้ดีที่สุดอีกครั้ง โดยมีความแม่นยำ 84.40% และความแม่นยำสูง (90.81%)</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(iv) กล่องฝึกอบรม 4: อัลกอริทึม 4 มีความแม่นยำ (82.35%) และความแม่นยำ (93.36%) ที่ดีที่สุด</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(v) กล่องฝึกอบรม 5: อัลกอริทึม 4 มีความแม่นยำสูงสุดเท่ากัน (85.32%) และแสดงความแม่นยำที่ดีที่สุด (94.89%) และจำนวนการวนซ้ำที่ดีกว่าเล็กน้อย</li>
+                    <h2></h2>
+                    <li class="Introduction-text"> โดยทั่วไป อัลกอริทึม 4 แสดงให้เห็นถึงประสิทธิภาพที่ดีอย่างสม่ำเสมอในด้านความแม่นยำ ความแม่นยำ และคะแนน F1 ในกล่องฝึกอบรมส่วนใหญ่"</li>
+                </ul>
+                 
+                <!-- Conclusions  -->
+                <section id="Conclusions" class="Conclusions ">
+                    <h1 class="Conclusions">Conclusions</h1>
+                    <div class="Conclusions">
+                        <div class="Conclusions">
+                            <h2 class="Introduction-text">ราได้เสนออัลกอริทึมใหม่ (อัลกอริทึม 4) 
+                                เพื่อแก้ปัญหาการรวมตัวแปรและปัญหาจุดตรึงที่เกี่ยวข้องกับการแปลงแบบกึ่งไม่ขยายในปริภูมิฮิลเบิร์ตจริง 
+                                ทฤษฎีบทหลักของเราสร้างการลู่เข้าอย่างอ่อนของอัลกอริทึมที่เสนอภายใต้เงื่อนไขบางประการ นอกจากนี้ 
+                                เรายังได้ประยุกต์ใช้อัลกอริทึมร่วมกับเครื่องเรียนรู้สุดขีดกับปัญหาการจำแนกข้อมูล โดยเฉพาะอย่างยิ่งเพื่อทำนายความเสี่ยงโรคกระดูกพรุน 
+                                อัลกอริทึมของเราบรรลุความแม่นยำมากกว่า 82%, ความแม่นยำมากกว่า 91%, การเรียกคืน 76% และคะแนน F1 มากกว่า 83% ในทุกกล่องฝึกอบรม 
+                                ซึ่งแสดงให้เห็นถึงประสิทธิภาพของอัลกอริทึมที่เราพัฒนาขึ้น</h2>
+                <head>
+
+        </div>
+    </section>
+    
+    <style>
+        .Accuracy-Algorithms img {
+            width: 100%;
+            height: 100%;
+            border: 5px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .Accuracy-Algorithms img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    
+                
+
+    <style>.center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 0%;
+        background-color: #000000; /* พื้นหลังสำหรับพื้นที่ทั้งหมด */
+    }
+    .Introduction-text {
+        font-size:  37px; /* ปรับขนาดตัวหนังสือที่ต้องการ */
+        color: #ccc; /* ปรับสีตัวหนังสือ */
+    }
+    .button {
+        font-size: 5rem; /* ขนาดตัวอักษรของปุ่ม */
+        padding: 15px 30px; /* ช่องว่างรอบปุ่ม */
+        color: #ff0a0a; /* สีตัวอักษร */
+        background-color: #000000; /* สีพื้นหลังของปุ่ม */
+        text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+        border-radius: 10px; /* มุมมนของปุ่ม */
+        border: none; /* เอาเส้นขอบออก */
+        transition: background-color 0.3s ease, transform 0.2s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสีและการขยับ */
+    }
+    
+    .button:hover {
+        background-color: #000000; /* สีของปุ่มเมื่อเลื่อนเมาส์ */
+        transform: scale(1.05); /* ขยายขนาดเล็กน้อยเมื่อเลื่อนเมาส์ */
+    }
+    
+    </style>
+<!-- Osteoporosis Prediction Section -->
+<section id="prediction" class="container">
+    <h1>Osteoporosis Prediction</h1>
+    <h2>EX Data</h2>
+    <ul>
+        <h2>ประเมินประสิทธิภาพของอัลกอริทึมการจำแนกประเภทโดยใช้ 4 Evaluation Metrics</h2>
+    </ul>
+    <img src="https://i.postimg.cc/wB0fgD5S/Screenshot-2025-03-10-200432.png" alt="Osteoporosis Prediction" class="styled-image7">
+    
+    <div class="container1">
+        <ul class="text-list1">
+            <h2>ตัวแปรสำคัญสำหรับนำไป Prediction</h2>
+            <li>1. Age - อายุของบุคคล (เป็นตัวเลขปี)</li>
+            <li>2. Gender - เพศ</li>
+            <li>3. Hormonal Changes - การเปลี่ยนแปลงของฮอร์โมน</li>
+            <li>4. FamilyHistory - ประวัติครอบครัว</li>
+            <li>5. Race/Ethnicity - เชื้อชาติ</li>
+            <li>6. Body Weight - น้ำหนักตัว</li>
+            <li>7. Calcium Intake - การบริโภคแคลเซียม</li>
+            <li>8. Vitamin D Intake - การบริโภควิตามินดี </li>
+            <li>9. Physical Activity - ระดับการออกกำลังกาย </li>
+            <li>10. Smoking - การสูบบุหรี่ </li>
+            <li>11. Alcohol Consumption - การบริโภคแอลกอฮอล์</li>
+            <li>12. Medical Conditions - โรคประจำตัว </li>
+            <li>13. Medications - ยาที่ใช้เป็นประจำ </li>
+            <li>14. Prior Fractures - เคยกระดูกหัก </li>
+        </ul>
+    </div>
+    
+    <form action="/predict/" method="post" id="predictionForm">
+        <h2>กรอกข้อมูล 14 ค่าให้ตรงกับตัวแปรด้านบน:</h2>
+        <div class="input-container">
+            <input type="number" name="input_values" placeholder="Age" required>
+            <input type="number" name="input_values" placeholder="Gender" required>
+            <input type="number" name="input_values" placeholder="Hormonal Changes" required>
+            <input type="number" name="input_values" placeholder="FamilyHistory" required>
+            <input type="number" name="input_values" placeholder="Race/Ethnicity" required>
+            <input type="number" name="input_values" placeholder="Body Weight" required>
+            <input type="number" name="input_values" placeholder="Calcium Intake" required>
+            <input type="number" name="input_values" placeholder="Vitamin D Intake" required>
+            <input type="number" name="input_values" placeholder="Physical Activity" required>
+            <input type="number" name="input_values" placeholder="Smoking" required>
+            <input type="number" name="input_values" placeholder="Alcohol Consumption" required>
+            <input type="number" name="input_values" placeholder="Medical Conditions" required>
+            <input type="number" name="input_values" placeholder="Medications" required>
+            <input type="number" name="input_values" placeholder="Prior Fractures" required>
+        </div>
+        <button type="submit" class="styled-button">Predict</button>
+    </form>
+    <h3 id="predictionResult"></h3>
+</section>
+
+
+<style>
+    .styled-image7 {
+        width: 85%;
+        height: auto;
+        border: 5px solid #000000;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .styled-image7:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .input-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;  /* Increase gap for more space */
+        margin-top: 15px;
+    }
+    input[type="number"] {
+        padding: 15px;  /* Increased padding for larger input boxes */
+        border: 2px solid #000000;
+        border-radius: 40px;  /* Rounded corners */
+        font-size: 40px;  /* Larger font size */
+        width: 100%;  /* Full width of the container */
+        transition: border-color 0.3s ease;
+    }
+    input[type="number"]:focus {
+        border-color: #007BFF;
+        outline: none;
+    }
+    .styled-button {
+        background: linear-gradient(135deg, #007BFF, #00D4FF);
+        color: #000000;
+        padding: 15px 25px;  /* Larger button padding */
+        border: none;
+        border-radius: 50px;  /* Rounded corners */
+        font-size: 50px;  /* Larger font size */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 50px;  /* More space above button */
+    }
+    .styled-button:hover {
+        background: linear-gradient(135deg, #0056b3, #00aaff);
+        transform: scale(1.05);
+    }
+</style>
+
+
+<!-- JavaScript -->
+<script>
+    // Responsive Navigation Menu
+    document.querySelector('.menu-button').addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.toggle('active');
+    });
+
+    // Typing Effect
+    const typingText = document.getElementById('typing');
+    const text = "Welcome to Research article ";
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typingText.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, 150);
+        }
+    }
+    type();
+
+    // Osteoporosis Prediction Form
+    document.getElementById('predictionForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const values = [...formData.getAll('input_values')].map(Number);
+        const response = await fetch('/predict/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ input_values: values })
+        });
+        const result = await response.json();
+        document.getElementById('predictionResult').textContent = result.prediction;
+    };
+</script>
+
+</body>
+</html>
