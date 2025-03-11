@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Osteoporosis Prediction</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            transform: scale(0.5);
+            transform-origin: top left;
+            width: 200%;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Osteoporosis Prediction</a>
+        <nav id="nav-menu">
+            <a href="/" class="active">Home</a>
+            <a href="/introduction">Research</a>
+            <a href="/prediction">Prediction</a>
+        </nav>
+        <button class="menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+</body>
+
+    <section id="home" class="home">
+        <div class="home-content">
+            <h1> AIMS Math</h1>
+            <h3 class="typing-text"><span id="typing"></span></h3>
+            <p>Osteoporosis is a disease that makes bones fragile and prone to fractures. 
+                Predicting the risk of this disease is crucial for accurate diagnosis and treatment. In this study, 
+                we explore the application of Variational Inclusion Problems and Quasi-Nonexpansive Mappings to develop a risk prediction model for osteoporosis. 
+                The model utilizes medical data, such as bone density, to achieve accurate and efficient risk assessment</p>
+            <div class="social-icons">
+            </div>
+            <a href="https://www.aimspress.com/article/doi/10.3934/math.2025118"  target="_blank" class="btn">Research</a>
+        </div>
+    </section>
+    <section id="Prepared-By" class="container">
+        <h1> Prepared By</h1>
+        <div class="Prepared-By">
+            <h2>Supporter By</h2>
+            <div class="student-info">
+                <div class="student">
+                    <a href="https://www.nrct.go.th/home" target="_blank">
+                        <img src="https://i.postimg.cc/CM9Kq4Qs/Screenshot-2025-03-10-215952.png"  alt="University Student 1.1">
+                    </a>
+                    <p>สำนักงานการวิจัยแห่งชาติ (วช.)
+                        NATIONAL RESEARCH COUNCIL OF THAILAND
+                    </p>
+                </div>
+
+                <div class="student">
+                    <a href="https://www.tsri.or.th" target="_blank">
+                        <img src="https://i.postimg.cc/YCnZvdXp/Screenshot-2025-03-10-220017.png" alt="University Student 2.2">
+                    </a>
+                    <p>สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม</p> 
+                </div>
+            </div>
+        </div>
+
+        <div class="Prepared-By">
+            <h2>Supervisor</h2>
+            <div class="student-info">
+                <div class="student">
+                    <a href="https://postimages.org/" target="_blank">
+                        <img src="https://i.postimg.cc/jSz86PC0/2025-03-09-2-31-22-PM.png" alt="High School Certificate">
+                    </a>
+                    <p>Prasit Cholamjiak</p>
+                    <p>Department of Mathematics, School of Science, University of Phayao, Thailand</p>
+                </div>
+
+                <div class="student">
+                    <a href="https://postimages.org/" target="_blank">
+                        <img src="https://i.postimg.cc/Jzw6BPr5/2025-03-09-2-31-46-PM.png" alt="Certificate 2">
+                    </a>
+                    <p>Watcharaporn Cholanjiak</p>
+                    <p>Department of Mathematics, School of Science, University of Phayao, Thailand</p>
+                </div>
+
+                <div class="student">
+                    <a href="https://postimages.org/" target="_blank">
+                        <img src="https://i.postimg.cc/76BtG4h5/2025-03-09-2-33-20-PM.png" alt="Certificate 3">
+                    </a>
+                    <p>Kanokwatt Shiangjen</p>
+                    <p>School of Information and Communication Technology, University of Phayao, Thailand</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="Prepared-By">
+            <h2>Prepared By</h2>
+            <div class="student-info">
+                <div class="student">
+                    <a href="https://postimages.org/" target="_blank">
+                        <img src="https://i.postimg.cc/QxVLJG6D/Screenshot-2025-03-09-194321.png" alt="University Student 1">
+                    </a>
+                    <p>Jakkaphong Inpan</p>
+                    <p>B.D. Student, Department of Data Science and Application, School of Information and Communication Technology, University of Phayao</p>
+                </div>
+
+                <div class="student">
+                    <a href="https://postimages.org/" target="_blank">
+                        <img src="https://i.postimg.cc/7L8p4CqP/Screenshot-2025-03-09-194341.png" alt="University Student 2">
+                    </a>
+                    <p>Phisit Katongtung</p>
+                    <p>B.D. Student, Department of Data Science and Application, School of Information and Communication Technology, University of Phayao</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <button id="scrollToTopBtn">⬆ Top</button>
+<style>
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    visibility: hidden;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+/* ปุ่มจะแสดงเมื่อเลื่อนหน้าจอ */
+#scrollToTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ทำให้ปุ่มขยับขึ้นเล็กน้อยเมื่อแสดง */
+#scrollToTopBtn.show:hover {
+    transform: scale(1.1);
+}
+
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    if (!scrollToTopBtn) {
+        console.error("❌ ไม่พบปุ่ม scrollToTopBtn ใน DOM");
+        return;
+    }
+
+    console.log("✅ script.js Loaded!");
+
+    // ตรวจจับการเลื่อนหน้าจอ
+    window.addEventListener("scroll", function () {
+        console.log("🖱 ScrollY:", window.scrollY);
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add("show");
+        } else {
+            scrollToTopBtn.classList.remove("show");
+        }
+    });
+
+    // คลิกปุ่มเพื่อกลับขึ้นบนสุด
+    scrollToTopBtn.addEventListener("click", function () {
+        console.log("🔼 กดปุ่มกลับขึ้นบนสุด");
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
+
+</script>
+    <script src="/static/script.js"></script>
+    </body>
+    
+</html>    
+

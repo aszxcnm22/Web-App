@@ -1,0 +1,762 @@
+styles.css
+
+/* รีเซ็ตค่าเบื้องต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+/* ตั้งค่าทั่วไป */
+html {
+    font-size: 150%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #000000, #1a1a1a);
+    color: white;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: rgba(20, 20, 20, 0.95);
+}
+
+.logo {
+    font-size: 3rem;
+    color: #ff4e4e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+nav a {
+    font-size: 1.8rem;
+    color: #ccc;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ff4e4e;
+    border-bottom: 2px solid #ff4e4e;
+}
+
+/* ส่วนเนื้อหา */
+section {
+    min-height: 100vh;
+    padding: 10rem 9%;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.home-content h3 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #ff4e4e;
+}
+
+.home-content p {
+    font-size: 1.8rem;
+    color: #ccc;
+    margin-top: 1rem;
+}
+
+.home-img img {
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 78, 78, 0.8);
+}
+
+/* Social Icons */
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid #ff4e4e;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 2rem 1rem;
+    color: #ff4e4e;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.2);
+    background-color: #ff4e4e;
+    color: black;
+    box-shadow: 0 4px 15px rgba(255, 78, 78, 0.8);
+}
+
+/* ปุ่ม */
+.btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: transparent;
+    border: 2px solid #ff4e4e;
+    border-radius: 30px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ff4e4e;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff4e4e;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 78, 78, 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 995px) {
+    nav {
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+        gap: 4rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+h1 {
+    display: block;
+    font-size: 3.5em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h2 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h3 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+/* คอนเทนเนอร์ของ Progress Bar */
+.progress1 {
+    width: 100%; /* ความกว้างเต็ม */
+    height: 2.5rem; /* ความสูงของหลอด */
+    background: #262626; /* สีพื้นหลังของหลอด */
+    border-radius: 15px; /* มุมโค้งของหลอด */
+    overflow: hidden; /* ซ่อนส่วนเกิน */
+    position: relative; /* ใช้สำหรับจัดตำแหน่งตัวเลข */
+    margin-bottom: 2rem; /* ระยะห่างระหว่างหลอด */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* เพิ่มเงาสำหรับหลอด */
+}
+
+.progress2 {
+    width: 100%; 
+    height: 2.5rem; 
+    background: #262626; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    position: relative; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
+.progress3 {
+    width: 100%; 
+    height: 2.5rem; 
+    background: #262626; 
+    border-radius: 15px; 
+    overflow: hidden; 
+    position: relative; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
+.progress4 {
+    width: 100%; 
+    height: 2.5rem;
+    background: #262626; 
+    border-radius: 15px;
+    overflow: hidden; 
+    position: relative; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); 
+}
+
+/* ตัวแถบ Progress */
+.progress1  {
+    height: 100%; /* ความสูงเต็มคอนเทนเนอร์ */
+    width: 90%; /* ความกว้างเริ่มต้น (ใช้ JavaScript ควบคุม) */
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); /* Gradient สีหลอด */
+    transition: width 1.5s ease-in-out; /* เพิ่มแอนิเมชัน */
+    border-radius: 15px; /* มุมโค้งตามคอนเทนเนอร์ */
+    position: relative; /* ใช้สำหรับจัดตำแหน่งตัวเลข */
+    display: flex;
+    align-items: center; /* จัดตัวเลขตรงกลางหลอด */
+    justify-content: flex-end; /* วางตัวเลขไว้ปลายหลอด */
+    padding-right: 1rem; /* ระยะห่างตัวเลขกับขอบ */
+}
+
+.progress2  {
+    height: 100%; 
+    width: 80%; 
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); 
+    transition: width 1.5s ease-in-out;
+    border-radius: 15px; 
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+    padding-right: 1rem; 
+}
+
+.progress3  {
+    height: 100%; 
+    width: 70%; 
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); 
+    transition: width 1.5s ease-in-out;
+    border-radius: 15px; 
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+    padding-right: 1rem; 
+}
+
+.progress4  {
+    height: 100%; 
+    width: 60%; 
+    background: linear-gradient(90deg, #ff4e4e, #ff9e9e); 
+    transition: width 1.5s ease-in-out;
+    border-radius: 15px; 
+    position: relative; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+    padding-right: 1rem; 
+}
+
+/* ตัวเลขเปอร์เซ็นต์ */
+.progress1 {
+    font-size: 1.4rem; /* ขนาดตัวเลข */
+    font-weight: bold;
+    color: white; /* สีของตัวเลข */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* เพิ่มเงา */
+}
+
+.progress2 {
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: white; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+.progress3 {
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: white; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+.progress4 {
+    font-size: 1.4rem; 
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+.responsive-circle {
+    width: 100%;
+    max-width: 500px; /* กำหนดขนาดสูงสุดให้แต่ละรูป */
+    aspect-ratio: 1 / 1; /* สัดส่วนเป็น 1:1 เพื่อให้เป็นวงกลมสมบูรณ์ */
+    border-radius: 100%; /* ทำให้รูปภาพกลายเป็นวงกลม */
+    object-fit: cover; /* ครอบคลุมพื้นที่วงกลมโดยไม่เสียสัดส่วน */
+    margin: 10px; /* เพิ่มระยะห่างระหว่างรูปภาพ */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* จัดรูปให้อยู่กึ่งกลางแนวนอน */
+    gap: 20px; /* ระยะห่างระหว่างรูป */
+    flex-wrap: wrap; /* ให้รูปย้ายแถวได้เมื่อพื้นที่ไม่พอ */
+}
+
+.student-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.student {
+    width: 300px;
+    text-align: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.student:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.student img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.student img:hover {
+    transform: scale(1.08);
+}
+
+.student p {
+    font-size: 14px;
+    color: #333;
+}
+
+.student-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.student {
+    width: 400px; /* ปรับขนาดกล่องให้ใหญ่ขึ้น */
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.student:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.student img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.student img:hover {
+    transform: scale(1.1);
+}
+
+.student p {
+    font-size: 30px; /* ปรับให้ใหญ่ขึ้น */
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.Prepared-By h2 {
+    text-align: center; /* จัดให้อยู่ตรงกลาง */
+    font-size: 40px; /* ปรับขนาดให้ใหญ่ขึ้น */
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.Introduction img {
+    width: 900px;
+    height: auto;
+    border: 5px solid #ccc; /* กำหนดกรอบสีเทา */
+    border-radius: 10px; /* มุมโค้งมน */
+    padding: 10px; /* ระยะห่างภายในกรอบ */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เงารอบกรอบ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* การเคลื่อนไหวและเงา */
+}
+
+.Introduction img:hover {
+    transform: scale(1.05); /* ขยายภาพเมื่อชี้เมาส์ */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อชี้เมาส์ */
+}
+
+.Introduction {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* ระยะห่างระหว่างภาพ */
+    justify-content: center; /* จัดภาพให้อยู่กลาง */
+}
+
+.Introduction-text {
+    font-size:  37px; /* ปรับขนาดตัวหนังสือที่ต้องการ */
+    color: #ccc; /* ปรับสีตัวหนังสือ */
+}
+
+.application-osteoporosis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.application-osteoporosis {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.text-content {
+    width: 60%;
+}
+
+.text-application-osteoporosis {
+    font-size: 35px; 
+    line-height: 1.6; 
+}
+
+.text-application-osteoporosis h2 {
+    font-size: 50px; 
+    font-weight: bold;
+    color: #ffffff; 
+}
+
+.image-application-osteoporosis {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+}
+
+.styled-image {
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.styled-image:hover {
+    transform: scale(1.05);
+}
+
+.Process1 {
+    display: flex;
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    width: 100%;
+}
+
+.Process5 {
+    display: flex;
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    width: 100%;
+}
+
+.Process3 {
+    display: flex;
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    width: 100%;
+}
+
+.styled-image1 {
+    width: 80%;
+    height: auto; /* ป้องกันการบิดเบี้ยว */
+}
+
+.styled-image5 {
+    width: 50%;
+    height: auto; /* ป้องกันการบิดเบี้ยว */
+}
+
+.container1 {
+    display: flex;
+    align-items: center;  /* จัดกึ่งกลางแนวตั้ง */
+    justify-content: flex-start; /* จัดวางให้อยู่ทางซ้ายของ container */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างข้อความและรูป */
+}
+
+.text-list1 {
+    list-style-type: disc;
+    padding: 20px; /* ระยะห่างข้างซ้ายของข้อความ */
+    margin: 50px ; /* ระยะห่างข้างบนและล่าง */
+    color: #ccc; /* ใช้สีขาวตามภาพที่แนบมา */
+    font-size: 40px;
+}
+
+.styled-image {
+    width: 100%;
+    max-width: 800px;
+}
+
+.text-list2 {
+    list-style-type: disc;
+    padding: 20px; /* ระยะห่างข้างซ้ายของข้อความ */
+    margin: 50px ; /* ระยะห่างข้างบนและล่าง */
+    color: #ffffff; /* ใช้สีขาวตามภาพที่แนบมา */
+    font-size: 40px;
+}
+
+.styled-image1 {
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.styled-image1:hover {
+    transform: scale(1.05);
+}
+
+.styled-image2 {
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.styled-image2:hover {
+    transform: scale(1.05);
+}
+
+.styled-image5:hover {
+    transform: scale(1.05);
+}
+
+.styled-image5 {
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.styled-image5:hover {
+    transform: scale(1.05);
+}
+
+.Accuracy-Algorithms img {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Accuracy-Algorithms img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0%;
+    background-color: #000000; /* พื้นหลังสำหรับพื้นที่ทั้งหมด */
+}
+
+.Introduction-text {
+    font-size:  37px; /* ปรับขนาดตัวหนังสือที่ต้องการ */
+    color: #ccc; /* ปรับสีตัวหนังสือ */
+}
+
+.button {
+    font-size: 5rem; /* ขนาดตัวอักษรของปุ่ม */
+    padding: 15px 30px; /* ช่องว่างรอบปุ่ม */
+    color: #ff0a0a; /* สีตัวอักษร */
+    background-color: #000000; /* สีพื้นหลังของปุ่ม */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    border-radius: 10px; /* มุมมนของปุ่ม */
+    border: none; /* เอาเส้นขอบออก */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนสีและการขยับ */
+}
+
+.button:hover {
+    background-color: #000000; /* สีของปุ่มเมื่อเลื่อนเมาส์ */
+    transform: scale(1.05); /* ขยายขนาดเล็กน้อยเมื่อเลื่อนเมาส์ */
+}
+
+.styled-image7 {
+    width: 85%;
+    height: auto;
+    border: 5px solid #000000;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-image7:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.input-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;  /* Increase gap for more space */
+    margin-top: 15px;
+}
+
+input[type="number"] {
+    padding: 15px;  /* Increased padding for larger input boxes */
+    border: 2px solid #000000;
+    border-radius: 40px;  /* Rounded corners */
+    font-size: 40px;  /* Larger font size */
+    width: 100%;  /* Full width of the container */
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.styled-button {
+    background: linear-gradient(135deg, #007BFF, #00D4FF);
+    color: #000000;
+    padding: 15px 25px;  /* Larger button padding */
+    border: none;
+    border-radius: 50px;  /* Rounded corners */
+    font-size: 50px;  /* Larger font size */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 50px;  /* More space above button */
+}
+
+.styled-button:hover {
+    background: linear-gradient(135deg, #0056b3, #00aaff);
+    transform: scale(1.05);
+}
+
+.input-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    appearance: none; /* ลบลูกศร default ของเบราว์เซอร์ */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+.input-container select:focus {
+    border-color: #333;
+    outline: none;
+}
+
+
+
+
+
+

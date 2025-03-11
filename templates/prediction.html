@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Prediction - Osteoporosis Prediction</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            transform: scale(0.5);
+            transform-origin: top left;
+            width: 200%; 
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 25px;
+            color: #ffffff;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Osteoporosis Prediction</a>
+        <nav id="nav-menu">
+            <a href="/">Home</a>
+            <a href="/introduction">Research</a>
+            <a href="/prediction" class="active">Prediction</a>
+        </nav>
+        <button class="menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <section id="prediction" class="container">
+        <h1>Osteoporosis Prediction</h1>
+        <h2>EX Data</h2>
+        <ul>
+            <h2>Evaluation of Classification Algorithm Performance Using 4 Evaluation Metrics</h2>
+        </ul>
+        <img src="https://i.postimg.cc/wB0fgD5S/Screenshot-2025-03-10-200432.png" alt="Osteoporosis Prediction" class="styled-image7">
+        
+        <div class="container1">
+            <ul class="text-list1">
+                <h2>Key Variables for Prediction</h2>
+                <li>1. Age - The individual's age (in years)</li>
+                <li>2. Gender - Gender</li>
+                <li>3. Hormonal Changes - Hormonal changes</li>
+                <li>4. Family History - Family history</li>
+                <li>5. Race/Ethnicity - Race/Ethnicity</li>
+                <li>6. Body Weight - Body weight</li>
+                <li>7. Calcium Intake - Calcium intake</li>
+                <li>8. Vitamin D Intake - Vitamin D intake</li>
+                <li>9. Physical Activity - Level of physical activity</li>
+                <li>10. Smoking - Smoking habits</li>
+                <li>11. Alcohol Consumption - Alcohol consumption</li>
+                <li>12. Medical Conditions - Pre-existing medical conditions</li>
+                <li>13. Medications - Regular medications</li>
+                <li>14. Prior Fractures - History of fractures</li>
+            </ul>
+        </div>
+        <style>
+            .form-container {
+                display: flex;
+                justify-content: right;
+                align-items: right;
+                min-height: 100vh;
+                padding: 20px;
+            }
+
+            #predictionForm {
+                background-color: #000000;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                width: 100%;
+                max-width: 2000px; 
+            }
+    
+            .input-container {
+                margin-bottom: 20px; 
+            }
+    
+            .input-container input,
+            .input-container select {
+                width: 100%;
+                padding: 15px; 
+                margin-top: 8px;
+                border: 2px solid #ccc;
+                border-radius: 6px;
+                font-size: 50px; 
+            }
+    
+            .input-container input:focus,
+            .input-container select:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+    
+            .input-container select {
+                appearance: none;
+                background-color: #fff;
+            }
+    
+            .input-container input::placeholder {
+                color: #999;
+            }
+    
+            .input-container select:invalid {
+                color: #999;
+            }
+    
+            .input-container select option {
+                color: #000;
+            }
+    
+            .button-container {
+            display: flex;
+            justify-content: center; 
+            }
+
+            button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 6px;
+                font-size: 20px;
+                padding: 15px 30px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            
+        </style>
+        <form id="predictionForm">
+            <div class="input-container">
+                <input type="number" name="input1" placeholder="Age" required>
+        
+                <select name="input2" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+
+<select name="input3" required>
+    <option value="" disabled selected>Hormonal Changes</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
+</select>
+
+<select name="input4" required>
+    <option value="" disabled selected>Family History</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
+</select>
+
+<select name="input5" required>
+    <option value="" disabled selected>Race/Ethnicity</option>
+    <option value="1">Caucasian</option>
+    <option value="2">African American</option>
+    <option value="3">Asian</option>
+    <option value="4">Other</option>
+</select>
+
+<select name="input6" required>
+    <option value="" disabled selected>Body Weight</option>
+    <option value="1">Normal</option>
+    <option value="2">Underweight</option>
+</select>
+
+<select name="input7" required>
+    <option value="" disabled selected>Calcium Intake</option>
+    <option value="1">Low</option>
+    <option value="2">Adequate</option>
+</select>
+
+<select name="input8" required>
+    <option value="" disabled selected>Vitamin D Intake</option>
+    <option value="1">Insufficient</option>
+    <option value="2">Sufficient</option>
+</select>
+
+<select name="input9" required>
+    <option value="" disabled selected>Physical Activity</option>
+    <option value="1">Sedentary</option>
+    <option value="2">Active</option>
+</select>
+
+<select name="input10" required>
+    <option value="" disabled selected>Smoking</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
+</select>
+
+<select name="input11" required>
+    <option value="" disabled selected>Alcohol Consumption</option>
+    <option value="1">None</option>
+    <option value="2">Moderate</option>
+</select>
+
+<select name="input12" required>
+    <option value="" disabled selected>Medical Conditions</option>
+    <option value="1">Rheumatoid Arthritis</option>
+    <option value="2">None</option>
+</select>
+
+<select name="input13" required>
+    <option value="" disabled selected>Medications</option>
+    <option value="1">Corticosteroids</option>
+    <option value="2">No Medications</option>
+</select>
+
+<select name="input14" required>
+    <option value="" disabled selected>Prior Fractures</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
+</select>
+            </div>
+            <button type="submit" class="styled-button">Predict</button>
+        </form>
+        <div id="result"></div>
+    </section>
+    <button id="scrollToTopBtn">⬆ Top</button>
+    <style>
+    #scrollToTopBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        opacity: 0;
+        visibility: hidden;
+        padding: 10px 15px;
+        font-size: 16px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+    
+    /* ปุ่มจะแสดงเมื่อเลื่อนหน้าจอ */
+    #scrollToTopBtn.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* ทำให้ปุ่มขยับขึ้นเล็กน้อยเมื่อแสดง */
+    #scrollToTopBtn.show:hover {
+        transform: scale(1.1);
+    }
+    
+    
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    
+        if (!scrollToTopBtn) {
+            console.error("❌ ไม่พบปุ่ม scrollToTopBtn ใน DOM");
+            return;
+        }
+    
+        console.log("✅ script.js Loaded!");
+    
+        // ตรวจจับการเลื่อนหน้าจอ
+        window.addEventListener("scroll", function () {
+            console.log("🖱 ScrollY:", window.scrollY);
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add("show");
+            } else {
+                scrollToTopBtn.classList.remove("show");
+            }
+        });
+    
+        // คลิกปุ่มเพื่อกลับขึ้นบนสุด
+        scrollToTopBtn.addEventListener("click", function () {
+            console.log("🔼 กดปุ่มกลับขึ้นบนสุด");
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+    
+    </script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

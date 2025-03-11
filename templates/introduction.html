@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Introduction - Osteoporosis Prediction</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            transform: scale(0.5);
+            transform-origin: top left;
+            width: 200%; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Osteoporosis Prediction</a>
+        <nav id="nav-menu">
+            <a href="/">Home</a>
+            <a href="/introduction" class="active">Research</a>
+            <a href="/prediction">Prediction</a>
+        </nav>
+        <button class="menu-button">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <section id="Introduction" class="container">
+        <h1 class="Introduction-heading">Introduction</h1>
+        <div class="Introduction-grid">
+            <div class="Introduction">
+                <h2 class="Introduction-text">This article presents a novel algorithmic process for solving fixed-point problems for quasi-nonexpansive 
+                    mappings and variational inclusion problems within real Hilbert spaces. The proposed method demonstrates weak convergence under suitable assumptions.
+                     Additionally, we apply this algorithm to data classification for predicting osteoporosis risk using Extreme Learning Machine (ELM). 
+                     Experimental results show that our proposed algorithm outperforms existing algorithms across multiple evaluation metrics. 
+                     Notably, it achieves higher accuracy, precision, and F1-score across various training scenarios compared to other methods. 
+                     The area under the curve (AUC) from the receiver operating characteristic (ROC) curve further confirms the efficiency of our approach, 
+                     highlighting its generalizability and superior classification performance. These results emphasize the effectiveness and robustness of our proposed algorithm, 
+                     demonstrating its potential for advancing osteoporosis risk prediction through improved inclusion and classification capabilities.</h2>
+                <h2>Old Algorithm</h2>
+                <div class="Introduction">
+                    <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/KYvH05qM/Screenshot-2025-03-09-150443.png" 
+                        \alt="Screenshot-2025-03-09-150443" border="0"></a>
+                        <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/qRWDMHks/Screenshot-2025-03-09-150501.png" 
+                            alt="Screenshot-2025-03-09-150501" border="0"></a>
+                            <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/VLQZxwZ1/Screenshot-2025-03-09-150509.png" 
+                                alt="Screenshot-2025-03-09-150509" border="0"></a>
+                                <h2>New Algorithm</h2>
+                                
+                </div>
+                <a href="https://postimages.org/" target="_blank"><img src="https://i.postimg.cc/3NpSkfRP/Screenshot-2025-03-09-150536.png" 
+                    alt="Screenshot-2025-03-09-150536" border="0"></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="application-osteoporosis" class="Application to Osteoporosis Risk Prediction">
+        <h1>Application to Osteoporosis Risk Prediction</h1>
+        
+        <div class="application-osteoporosis">
+            <div class="text-application-osteoporosis">
+                <h2>Importance of Osteoporosis</h2>
+                <ul>
+                    <li class="Introduction-text">Osteoporosis is a global health issue, especially among the elderly.</li>
+                    <li class="Introduction-text">It weakens bones and increases the risk of fractures.</li>
+                    <li class="Introduction-text">This condition can lead to complications, loss of mobility, and a higher mortality rate.</li>
+                </ul>
+        
+                <h2>Role of Machine Learning in Osteoporosis Analysis</h2>
+                <ul>
+                    <li class="Introduction-text">Machine Learning (ML) can analyze demographic data, lifestyle, genetics, and bone density.</li>
+                    <li class="Introduction-text">It helps identify high-risk individuals at an early stage.</li>
+                    <li class="Introduction-text">This enables early intervention and prevention of complications caused by osteoporosis.</li>
+                </ul>
+        
+                <h2>Developing a New Algorithm for Enhanced Prediction Accuracy</h2>
+                <ul>
+                    <li class="Introduction-text">A newly developed algorithm is used as an optimizer for Extreme Learning Machine (ELM).</li>
+                    <li class="Introduction-text">The dataset from Kaggle, covering demographics, lifestyle, and medical history, is utilized.</li>
+                    <li class="Introduction-text">This improves accuracy in analyzing and predicting osteoporosis risk.</li>
+                </ul>
+        
+                <h2>Risk Factors Associated with Osteoporosis</h2>
+                <ul>
+                    <li class="Introduction-text"><strong>Age:</strong> Natural bone deterioration increases with age.</li>
+                    <li class="Introduction-text"><strong>Hormonal Changes:</strong> Such as menopause, which reduces estrogen levels.</li>
+                    <li class="Introduction-text"><strong>Nutritional Deficiencies:</strong> Especially calcium and vitamin D.</li>
+                    <li class="Introduction-text"><strong>Lifestyle Factors:</strong> Lack of exercise or an unhealthy diet.</li>
+                </ul>
+        
+                <h2>Diagnosis and Prevention Strategies</h2>
+                <ul>
+                    <li>Diagnosis is performed using <strong>DEXA Scan</strong>, which measures bone mass density (T-score < -2.5 indicates osteoporosis).</li>
+                    <li>Exercise, proper intake of calcium and vitamin D, and lifestyle adjustments help reduce risk.</li>
+                </ul>
+        
+                <h2>Benefits of Using Machine Learning in Osteoporosis Management</h2>
+                <ul>
+                    <li>Enables faster risk prediction.</li>
+                    <li>Helps doctors and medical personnel develop appropriate treatment plans.</li>
+                    <li>Increases the chance of prevention and reduces the burden on public health systems.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <section id="Process" class="Process">
+            <h1>Process</h1>
+            <ul>
+                <h2>Example Dataset</h2>
+                <div class="Process5">
+                    <img src='https://i.postimg.cc/wB0fgD5S/Screenshot-2025-03-10-200432.png' alt='Osteoporosis Prediction' class="styled-image5">
+                </div>
+                <li class="Introduction-text">These variables are related to factors that may contribute to osteoporosis, such as age, gender, hormonal changes, family history, body weight, calcium intake, exercise habits, smoking, and history of fractures. The dataset consists of 979 osteoporosis cases and 979 non-osteoporosis cases, indicating a balanced dataset.</li>
+        
+                <h2>Bone Density Stages</h2>
+                <div class="Process1">
+                    <img src='https://i.postimg.cc/8PShqNLh/Screenshot-2025-03-10-032016.png' alt='Osteoporosis Prediction' class="styled-image1">
+                </div>
+                <li class="Introduction-text"><strong>Normal Bone:</strong> T-score of -1 or higher, indicating strong bone density.</li>
+                <li class="Introduction-text"><strong>Osteopenia:</strong> Mild bone mass loss with a T-score between -1 and -2.5, indicating low bone density.</li>
+                <li class="Introduction-text"><strong>Osteoporosis:</strong> Severe bone mass loss and increased porosity, with a T-score of -2.5 or lower, indicating a higher risk of fractures.</li>
+            </ul>
+        
+            <ul>
+                <h2>Evaluating Classification Algorithm Performance Using Four Metrics</h2>
+                <div class="container1">
+                    <ul class="text-list1">
+                        <li>Accuracy</li>
+                        <li>Precision</li>
+                        <li>Recall</li>
+                        <li>F1-score</li>
+                    </ul>
+                    <img src="https://i.postimg.cc/PJqCy4Yf/Screenshot-2025-03-10-135103.png" alt="Osteoporosis Prediction" class="styled-image">
+                </div>
+                <div class="container1">
+                    <ul class="text-list1">
+                        <li><strong>TP (True Positives):</strong> Correctly predicted positive cases (e.g., predicting osteoporosis correctly).</li>
+                        <li><strong>TN (True Negatives):</strong> Correctly predicted negative cases (e.g., predicting no osteoporosis correctly).</li>
+                        <li><strong>FP (False Positives):</strong> Incorrectly predicted positive cases (e.g., predicting osteoporosis when it is not present).</li>
+                        <li><strong>FN (False Negatives):</strong> Incorrectly predicted negative cases (e.g., predicting no osteoporosis when it is actually present).</li>
+                    </ul>
+                </div>
+        
+                <h2>Illustration of 5-Fold Cross-Validation Technique</h2>
+                <div class="Process3">
+                    <img src='https://i.postimg.cc/MG5t4Sdm/Screenshot-2025-03-10-154512.png' alt='Osteoporosis Prediction' class="styled-image1">
+                </div>
+                <h2>Explanation</h2>
+                <ul class="text-list2">
+                    <p>The illustration demonstrates the <strong>5-fold cross-validation technique</strong>, used to evaluate machine learning model performance by dividing the dataset into five equal parts (folds).</p>
+        
+                    <h4>Each Fold:</h4>
+                    <li class="Introduction-text">In each iteration, the data is split into two parts:</li>
+                    <li class="Introduction-text"><strong>Training Data:</strong> 80% of the total data (purple) is used for model training.</li>
+                    <li class="Introduction-text"><strong>Validation Data:</strong> 20% of the total data (green) is used for evaluating model performance.</li>
+                    <li class="Introduction-text">Each fold uses different subsets of data for validation to ensure that the entire dataset is utilized for validation at least once.</li>
+        
+                    <h4>Process:</h4>
+                    <li class="Introduction-text">This process is repeated five times, with a different fold used for validation in each iteration while the remaining folds are used for training.</li>
+                    <li class="Introduction-text">The results from each fold are averaged to assess the model’s overall performance.</li>
+        
+                    <h4>Benefits:</h4>
+                    <li class="Introduction-text">5-fold cross-validation helps reduce <strong>overfitting</strong> (where a model learns the training data too well and performs poorly on new data).</li>
+                    <li class="Introduction-text">Provides a <strong>more reliable evaluation</strong> of model performance by using the entire dataset for validation.</li>
+                </ul>
+            </ul>
+        </section>
+        
+
+        <section id="Process" class="Process">
+            <h1>Process</h1>
+            <ul>
+    
+                <h2>Dataset Example</h2>
+                <div class="Process5">
+                    <img src='https://i.postimg.cc/wB0fgD5S/Screenshot-2025-03-10-200432.png' alt='Osteoporosis Prediction' class="styled-image5">
+                </div>
+                <h2></h2>
+                    <li class="Introduction-text">These variables are related to factors that may affect osteoporosis, such as age, gender, hormonal changes, family history, body weight, calcium intake, exercise, smoking, and history of fractures. The lower section of the table indicates that this dataset contains 979 osteoporosis cases and 979 non-osteoporosis cases, demonstrating an equal balance between the two groups.</li>
+                
+                <h2>Bone Density Stages</h2>
+                <div class="Process1">
+                    <img src='https://i.postimg.cc/8PShqNLh/Screenshot-2025-03-10-032016.png' alt='Osteoporosis Prediction' class="styled-image1">
+                </div>
+                <h2></h2>
+                    <li class="Introduction-text">Normal bone: T-score of -1 or higher, indicating strong bone density.</li>
+                    <li class="Introduction-text">Osteopenia: Slight bone mass loss, with a T-score between -1 and -2.5, indicating lower-than-normal bone density.</li>
+                    <li class="Introduction-text">Osteoporosis: Significant bone mass loss with increased porosity, T-score of -2.5 or lower, indicating a higher risk of fractures.</li>
+            </ul>
+            <ul>
+                <h2>Performance Evaluation of Classification Algorithms Using 4 Evaluation Metrics</h2>
+                    <div class="container1">
+                        <ul class="text-list1">
+                            <li>Accuracy</li>
+                            <li>Precision</li>
+                            <li>Recall</li>
+                            <li>F1-score</li>
+                        </ul>
+                        <img src="https://i.postimg.cc/PJqCy4Yf/Screenshot-2025-03-10-135103.png"
+             alt="Osteoporosis Prediction" class="styled-image">
+             <div class="container1">
+                <ul class="text-list1">
+                    <li>TP (True Positives): Correctly predicted positive cases (e.g., predicting osteoporosis when the patient actually has it).</li>
+                    <li>TN (True Negatives): Correctly predicted negative cases (e.g., predicting no osteoporosis when the patient is actually healthy).</li>
+                    <li>FP (False Positives): Incorrectly predicted positive cases (e.g., predicting osteoporosis when the patient does not have it).</li>
+                    <li>FN (False Negatives): Incorrectly predicted negative cases (e.g., predicting no osteoporosis when the patient actually has it).</li>
+                    </div>
+                </ul>
+                    <ul>
+                        <h2>Illustration of 5-Fold Cross-Validation</h2>
+                        <div class="Process3">
+                            <img src='https://i.postimg.cc/MG5t4Sdm/Screenshot-2025-03-10-154512.png' alt='Osteoporosis Prediction' class="styled-image1">
+                        </div>
+                        <h2>Description</h2>
+                        <ul class="text-list2">
+                        <p>The illustration shows the process of 5-fold cross-validation, a method used to evaluate machine learning model performance by dividing data into 5 equal parts (folds).</p>
+                        <h2></h2>
+                        <h4>Each Fold:</h4>
+                            <li class="Introduction-text">In each round (fold), the data is split into two parts:</li>
+                            <li class="Introduction-text">Training Data: 80% of the total data (purple) is used for model training.</li>
+                            <li class="Introduction-text">Validation Data: 20% of the total data (green) is used to assess model performance.</li>
+                            <li class="Introduction-text">Each fold uses a different subset for validation, ensuring that all data is used for validation at least once.</li>
+                            
+                            <h2></h2>
+                            <h4>Process:</h4>
+                            <li class="Introduction-text">The process repeats 5 times, with a different fold used for validation in each iteration while the rest is used for training.</li>
+                            <li class="Introduction-text">Results from each fold are averaged to evaluate the overall model performance.</li>
+                            
+                            <h2></h2>
+                            <h4>Benefits:</h4>
+                            <li class="Introduction-text">5-fold cross-validation helps reduce overfitting, ensuring the model generalizes well to new data.</li>
+                            <li class="Introduction-text">It provides a more reliable assessment of model performance by using all data for validation.</li>
+                    </ul>
+        </section>
+    
+        <section id="Accuracy-Algorithms" class="Accuracy-Algorithms">
+            <h1>Accuracy-Algorithms</h1>
+            <h2>Settings-for-Algorithms</h2>
+            <div class="Accuracy-Algorithms">
+                <img src="https://i.postimg.cc/rpX08KFN/Screenshot-2025-03-10-181455.png" 
+                     alt="Osteoporosis Prediction" class="styled-image4">
+                <h2></h2>
+                <ul>
+                    <li class="Introduction-text">
+                        Parameter settings for Algorithms 1–4 include 1, n, and n, representing step size, learning rate, adjustment factor, and additional terms related to the iterative process.
+                    </li>
+                    <h2>Algorithm-Training Box 1</h2>
+                    <img src="https://i.postimg.cc/0NY6rPzR/Screenshot-2025-03-10-181504.png" 
+                    alt="Osteoporosis Prediction" class="styled-image4">
+                    <h2></h2>
+                    <li class="Introduction-text">
+                        Performance comparison of Algorithms 1-4 on validation data from Training Box 1. These results are based on model evaluation using the first fold of the 5-fold cross-validation scheme, where Training Box 1 serves as the validation dataset.
+                    </li>
+                    
+                    <h2>Algorithm-Training Box 2</h2>
+                    <img src="https://i.postimg.cc/1Xt4WFJs/Screenshot-2025-03-10-181515.png" 
+                    alt="Osteoporosis Prediction" class="styled-image4">
+                    <h2></h2>
+                    <li class="Introduction-text">
+                        Performance comparison of Algorithms 1-4 on validation data from Training Box 2, based on the second fold of the 5-fold cross-validation scheme.
+                    </li>
+                    
+                    <h2>Algorithm-Training Box 3</h2>
+                    <img src="https://i.postimg.cc/wvF7c25w/Screenshot-2025-03-10-181525.png" 
+                    alt="Osteoporosis Prediction" class="styled-image4">
+                    <h2></h2>
+                    <li class="Introduction-text">
+                        Performance comparison of Algorithms 1-4 on validation data from Training Box 3, based on the third fold of the 5-fold cross-validation scheme.
+                    </li>
+                    
+                    <h2>Algorithm-Training Box 4</h2>
+                    <img src="https://i.postimg.cc/nznXDgms/Screenshot-2025-03-10-181545.png"
+                    alt="Osteoporosis Prediction" class="styled-image4">
+                    <h2></h2>
+                    <li class="Introduction-text">
+                        Performance comparison of Algorithms 1-4 on validation data from Training Box 4, based on the second fold of the 5-fold cross-validation scheme.
+                    </li>
+        
+                    <h2>Algorithm-Training Box 5</h2>
+                    <img src="https://i.postimg.cc/3NcNzwcp/Screenshot-2025-03-10-181550.png"
+                    alt="Osteoporosis Prediction" class="styled-image4">
+                    <h2></h2>
+                    <li class="Introduction-text">
+                        Performance comparison of Algorithms 1-4 on validation data from Training Box 5, based on the second fold of the 5-fold cross-validation scheme.
+                    </li>
+        
+                    <h2>Algorithm-Training Box 6</h2>
+                    <img src="https://i.postimg.cc/15BKsnT1/Screenshot-2025-03-10-194444.png" 
+                    alt="Osteoporosis Prediction" class="styled-image4">
+                    <h2></h2>
+                    <li class="Introduction-text">
+                        Performance comparison of Algorithms 1-4 on validation data from Training Box 6, based on the second fold of the 5-fold cross-validation scheme.
+                    </li>
+        
+                    <h2>Algorithm-Training Box 7</h2>
+                    <img src="https://i.postimg.cc/GmSJs0dM/Screenshot-2025-03-10-194448.png" 
+                    alt="Osteoporosis Prediction" class="styled-image4">
+                    <h2></h2>
+                    <li class="Introduction-text">
+                        Performance comparison of Algorithms 1-4 on validation data from Training Box 7, based on the second fold of the 5-fold cross-validation scheme.
+                    </li>
+                    <h2>From Tables 3–7, the performance of Algorithms 1–4 was evaluated using the 5-fold cross-validation scheme, where each training box served as a validation set in sequence.</h2>
+                    <h2></h2>
+                    <li class="Introduction-text">(i) Training Box 1: Algorithm 4 achieved the highest accuracy (82.05%) with outstanding precision (91.79%) and F1-score (83.64%).</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(ii) Training Box 2: Algorithms 3 and 4 achieved the highest accuracy (85.93%) equally, with Algorithm 4 showing slightly better CPU time and recall (81.61%).</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(iii) Training Box 3: Algorithm 4 again performed best, with an accuracy of 84.40% and high precision (90.81%).</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(iv) Training Box 4: Algorithm 4 achieved the best accuracy (82.35%) and precision (93.36%).</li>
+                    <h2></h2>
+                    <li class="Introduction-text">(v) Training Box 5: Algorithm 4 achieved the highest accuracy (85.32%) and demonstrated the best precision (94.89%) with slightly better iteration counts.</li>
+                    <h2></h2>
+                    <li class="Introduction-text">Overall, Algorithm 4 consistently demonstrated strong performance in accuracy, precision, and F1-score across most training boxes.</li>
+                </ul>
+        </section>
+    
+        <section id="Conclusions" class="Conclusions">
+            <h1 class="Conclusions">Conclusions</h1>
+            <div class="Conclusions">
+                <div class="Conclusions">
+                    <h2 class="Introduction-text">We proposed a new algorithm (Algorithm 4) to address variable inclusion and fixed-point issues associated with semi-expansive transformations in real Hilbert spaces. Our main theorem establishes the weak convergence of the proposed algorithm under certain conditions. Additionally, we applied the algorithm in extreme learning machines for classification problems, particularly predicting osteoporosis risk. Our algorithm achieved over 82% accuracy, over 91% precision, 76% recall, and over 83% F1-score across all training boxes, demonstrating its effectiveness.</h2>
+                </div>
+            </div>
+        </section>
+        <button id="scrollToTopBtn">⬆ Top</button>
+        <style>
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            visibility: hidden;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* ปุ่มจะแสดงเมื่อเลื่อนหน้าจอ */
+        #scrollToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* ทำให้ปุ่มขยับขึ้นเล็กน้อยเมื่อแสดง */
+        #scrollToTopBtn.show:hover {
+            transform: scale(1.1);
+        }
+        
+        
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        
+            if (!scrollToTopBtn) {
+                console.error("❌ ไม่พบปุ่ม scrollToTopBtn ใน DOM");
+                return;
+            }
+        
+            console.log("✅ script.js Loaded!");
+        
+            // ตรวจจับการเลื่อนหน้าจอ
+            window.addEventListener("scroll", function () {
+                console.log("🖱 ScrollY:", window.scrollY);
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add("show");
+                } else {
+                    scrollToTopBtn.classList.remove("show");
+                }
+            });
+        
+            // คลิกปุ่มเพื่อกลับขึ้นบนสุด
+            scrollToTopBtn.addEventListener("click", function () {
+                console.log("🔼 กดปุ่มกลับขึ้นบนสุด");
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        });
+        
+        </script>
+    
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
