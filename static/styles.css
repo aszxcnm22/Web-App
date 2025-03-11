@@ -461,6 +461,72 @@ h3 {
     margin-top: 10px;
 }
 
+.supervisor-container1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* การ์ดของอาจารย์ที่ปรึกษา */
+.supervisor-card1 {
+    background: linear-gradient(135deg, #fff, #fff);
+    color: #333;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgb(252, 252, 252);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+/* เอฟเฟกต์ Glow เมื่อ Hover */
+.supervisor-card1:hover {
+    transform: scale(1.07);
+    border-color: #ffffff;
+    box-shadow: 0 0 20px #ffffff, 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+/* รูปอาจารย์ */
+.supervisor-card1 img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+/* เอฟเฟกต์ Glow เมื่อ Hover ที่รูป */
+.supervisor-card1 img:hover {
+    transform: scale(1.1);
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+/* ข้อความชื่อ */
+.supervisor-card1 p {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* ข้อความภาควิชา */
+.supervisor-card1 .dept {
+    font-size: 35px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
 .Prepared-By h2 {
     text-align: center; /* จัดให้อยู่ตรงกลาง */
     font-size: 40px; /* ปรับขนาดให้ใหญ่ขึ้น */
