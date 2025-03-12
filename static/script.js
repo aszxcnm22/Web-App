@@ -4,7 +4,7 @@ document.querySelector('.menu-button').addEventListener('click', () => {
 
 const typingText = document.getElementById('typing');
 if (typingText) {
-    const text = "Welcome to Research article ";
+    const text = "Welcome to Osteoporosis Prediction";
     let index = 0;
 
     function type() {
