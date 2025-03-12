@@ -17,7 +17,7 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Osteoporosis Prediction</a>
+        <a href="#" class="logo">Advanced Numerical Optimization Research Graup (ANORG)</a>
         <nav id="nav-menu">
             <a href="/" class="active">Home</a>
             <a href="/introduction">Research</a>
@@ -28,24 +28,36 @@
         </button>
     </header>
 </body>
-
     <section id="home" class="home">
         <div class="home-content">
-            <h1> AIMS Math</h1>
+            <h1>Osteoporosis Prediction</h1>
             <h3 class="typing-text"><span id="typing"></span></h3>
             <p>Osteoporosis is a disease that makes bones fragile and prone to fractures. 
                 Predicting the risk of this disease is crucial for accurate diagnosis and treatment. In this study, 
                 we explore the application of Variational Inclusion Problems and Quasi-Nonexpansive Mappings to develop a risk prediction model for osteoporosis. 
                 The model utilizes medical data, such as bone density, to achieve accurate and efficient risk assessment</p>
+                <div class="home-content1">
+                <p>Acknowledgments: This project would like to  
+                thank the article Suparatulatorn, R., Liawrungrueang, W., 
+                Mouktonglang, T., & Cholamjiak, W. (2025). 
+                An algorithm for variational inclusion problems including quasi-nonexpansive
+                 mappings with applications in osteoporosis prediction. AIMS Mathematics, 10(2), 2541-2561. </p>
             <div class="social-icons">
             </div>
             <a href="https://www.aimspress.com/article/doi/10.3934/math.2025118"  target="_blank" class="btn">Research</a>
         </div>
+        <style>
+.home-content1 p {
+    font-size: 1.8rem;
+    color: #fffeab;
+    margin-top: 0.5%;
+}
+        </style>
     </section>
     <section id="Prepared-By" class="container">
-        <h1> Prepared By</h1>
+        <h1></h1>
         <div class="Prepared-By">
-            <h2>Supporter By</h2>
+            <h1>Supporter By</h1>
             <div class="student-info">
                 <div class="student">
                     <a href="https://www.nrct.go.th/home" target="_blank">
@@ -86,13 +98,13 @@
     
             <div class="supervisor-card1">
                 <img src="https://i.postimg.cc/c4dYTG6Z/Screenshot-2025-03-11-210717.png" alt="Dr. Wongthawat Liawrungrueang">
-                <p>Wongthawat Liawrungrueang</p>
+                <p>Dr. Wongthawat Liawrungrueang</p>
                 <p class="dept">Department of Orthopaedics, School of Medicine, University of Phayao, Thailand</p>
             </div>
         </div>
         
         <div class="Prepared-By">
-            <h2>Prepared By</h2>
+            <h1>Prepared By</h1>
             <div class="student-info">
                 <div class="student">
                     <a href="https://postimages.org/" target="_blank">
@@ -173,6 +185,21 @@
         });
     });
 });
+
+const typingText = document.getElementById('typing');
+if (typingText) {
+    const text = "Welcome to Osteoporosis Prediction";
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typingText.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, 100);
+        }
+    }
+    type();
+}
 
 </script>
     <script src="/static/script.js"></script>
