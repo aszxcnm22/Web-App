@@ -821,8 +821,32 @@ input[type="number"]:focus {
     outline: none;
 }
 
+/* Home Section */
+.home1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    animation: fadeIn 1.5s ease-out;
+}
 
+.home1-content h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
 
+.home1-content h3 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: #ff4e4e;
+}
+
+.home-content1 p {
+    font-size: 1.8rem;
+    color: #fde5a3;
+    margin-top: 1rem;
+}
 
 
 
