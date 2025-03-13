@@ -19,10 +19,17 @@ body {
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
-    background: linear-gradient(135deg, #000000, #1a1a1a);
+    background: linear-gradient(135deg, #6A11CB, #9350db, #a468e4 ,#a468e4,#fff3f3);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     color: white;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 
 /* Header */
 header {
@@ -30,24 +37,59 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 9%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(8px);
+    padding: 1rem 0; /* เอา padding ด้านข้างออก */
+    background: linear-gradient(135deg, rgba(131, 46, 191, 0.9), rgba(85, 26, 139, 0.9)); 
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    border-radius: 0; /* เอาขอบมนออก */
 }
 
 header:hover {
-    background-color: rgba(20, 20, 20, 0.95);
+    background: linear-gradient(135deg, rgba(131, 46, 191, 1), rgba(85, 26, 139, 1)); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 250px;
+    padding: 0 2rem; /* ปรับ padding ซ้ายขวา */
+    gap: 2rem; /* กำหนดระยะห่างระหว่างโลโก้ */
+}
+
+.logo-left {
+    margin-left: 5rem; /* ขยับโลโก้ซ้ายให้มีระยะ */
+}
+
+.logo-right {
+    margin-left: 2rem; /* ขยับโลโก้ขวาให้มีระยะ */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* ทำให้โลโก้อยู่กึ่งกลาง */
+    gap: 2rem; /* ปรับระยะห่างระหว่างโลโก้ */
+}
+
+.logo img {
+    height: auto;
+    max-height: 200px; /* ปรับขนาดสูงสุดของโลโก้ */
+}
+
+
+
 
 .logo {
     font-size: 3rem;
-    color: #ff4e4e;
+    color: #ffffff;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -57,6 +99,9 @@ header:hover {
     transform: scale(1.1);
     color: #fff;
 }
+
+
+
 
 nav a {
     font-size: 1.8rem;
@@ -69,8 +114,8 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: #ff4e4e;
-    border-bottom: 2px solid #ff4e4e;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
 }
 
 /* ส่วนเนื้อหา */
@@ -97,7 +142,7 @@ section {
 .home-content h3 {
     font-size: 4rem;
     margin-bottom: 1.5rem;
-    color: #ff4e4e;
+    color: #ffffff;
 }
 
 .home-content p {
@@ -113,7 +158,7 @@ section {
 
 .home-img img:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(255, 78, 78, 0.8);
+    box-shadow: 0 8px 20px rgba(247, 247, 247, 0.8);
 }
 
 /* Social Icons */
@@ -124,19 +169,19 @@ section {
     width: 4rem;
     height: 4rem;
     background-color: transparent;
-    border: 0.2rem solid #ff4e4e;
+    border: 0.2rem solid #ffffff;
     font-size: 2rem;
     border-radius: 50%;
     margin: 2rem 1rem;
-    color: #ff4e4e;
+    color: #ffffff;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-icons a:hover {
     transform: translateY(-5px) scale(1.2);
-    background-color: #ff4e4e;
+    background-color: #fcfcfc;
     color: black;
-    box-shadow: 0 4px 15px rgba(255, 78, 78, 0.8);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.8);
 }
 
 /* ปุ่ม */
@@ -144,18 +189,18 @@ section {
     display: inline-block;
     padding: 1.2rem 3rem;
     background: transparent;
-    border: 2px solid #ff4e4e;
+    border: 2px solid #fffcfc;
     border-radius: 30px;
     font-size: 1.6rem;
     font-weight: 600;
-    color: #ff4e4e;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #ff4e4e;
+    background-color: #ffffff;
     color: black;
     transform: scale(1.1);
     box-shadow: 0 5px 15px rgba(255, 78, 78, 0.8);
@@ -520,7 +565,8 @@ h3 {
 h1 {
     text-align: center;
     font-size: 50px;
-    color: #fff;
+    color: #ffffff;
+    margin-top: 100px; /* เพิ่มระยะห่างด้านบน */
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -619,6 +665,7 @@ h1 {
     justify-content: center; /* จัดกลางแนวนอน */
     align-items: center; /* จัดกลางแนวตั้ง */
     width: 100%;
+
 }
 
 .Process3 {
